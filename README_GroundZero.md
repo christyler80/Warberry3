@@ -4,8 +4,13 @@
 [![Black Hat Arsenal](https://www.toolswatch.org/badges/arsenal/2016.svg)](https://www.blackhat.com/us-16/arsenal.html)
 ![GPLv3 License](https://img.shields.io/badge/License-GPLv3-red.svg)
 [![Python 2.6|2.7](https://img.shields.io/badge/python-2.6|2.7-yellow.svg)](https://www.python.org/)
+[![Twitter](https://img.shields.io/badge/twitter-@sec_groundzero-blue.svg)](https://twitter.com/sec_groundzero)
 
 
-#### This project is forked from the original secgroundzero/warberry project and updated to be Python 3 compatible.
+#### This project is no longer maintained by the developer
+
+
+
+
 
 
