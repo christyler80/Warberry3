@@ -6,6 +6,6 @@
 [![Python 2.6|2.7](https://img.shields.io/badge/python-2.6|2.7-yellow.svg)](https://www.python.org/)
 [![Python 3.7](https://user-images.githubusercontent.com/24506694/120064697-78738a80-c065-11eb-844b-00966884b20a.png)](https://www.python.org/)
 
-#### This project is forked from the original secgroundzero/warberry project and updated to be Python 3 compatible.
+#### This project is forked from the original [secgroundzero/warberry project](https://github.com/secgroundzero/warberry) and updated to be Python 3 compatible.
 
 
