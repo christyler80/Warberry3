@@ -15,7 +15,6 @@ in the network that could lead to detection and to be as efficient as possible.
 The WarBerry script is a collection of scanning tools put together to provide that functionality.
 
 
-
 #### Disclaimer
 This tool is only for academic purposes and testing  under controlled environments. Do not use without obtaining proper authorization
 from the network owner of the network under testing.
