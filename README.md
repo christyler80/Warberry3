@@ -8,6 +8,8 @@
 
 #### This project is forked from the original [secgroundzero/warberry project](https://github.com/secgroundzero/warberry) and updated to be Python 3 compatible.
 
+The original author stopped maintaining the secgroundzero/warberry project in November 2019. 
+ 
 **WarBerryPi** was built to be used as a hardware implant during red teaming scenarios where we want to obtain as much information as possible in a short period of time with being as stealthy as possible. 
 
 The WarBerry python script is a collection of open source scanning tools put together to provide that functionality. These tools include nmap, crackmapexec, tcpdump, netdiscover and others typically found in Kali Linux. 
@@ -22,7 +24,7 @@ This version of Warberry PI has been tested under both Python 2 and Python 3 on 
 #### Disclaimer
 This tool is only for academic purposes and testing under controlled environments. Do not use without obtaining proper authorisation from the network owner of the network under testing.
 
-The author(s) bears no responsibility for any misuse of the tool. The original author stopped maintaining the secgroundzero/warberry project in November 2019. 
+The author(s) bears no responsibility for any misuse of the tool.
 
 
 #### Usage
