@@ -58,6 +58,7 @@ Options:
 ### Installation
 
 For Python 3 run ```sudo bash setup_python3.sh```
+
 For Python 2 run ```sudo bash setup_python2.sh```
 
 #### To address the issue with ImportError: No module named dns follow these steps
