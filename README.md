@@ -24,7 +24,7 @@ This version of Warberry PI has been tested under both Python 2 and Python 3 on 
 #### Disclaimer
 This tool is only for academic purposes and testing under controlled environments. Do not use without obtaining proper authorisation from the network owner of the network under testing.
 
-The author(s) bears no responsibility for any misuse of the tool.
+The author(s) bears no responsibility for any use (including misuse) of the tool.
 
 
 #### Usage
