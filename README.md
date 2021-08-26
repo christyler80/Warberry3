@@ -14,7 +14,7 @@ The WarBerry python script is a collection of open source scanning tools put tog
 
 Just find a network port and plug it in. The scripts have been designed in a way that the approach is targeted to avoid noise in the network that could lead to detection and to be as efficient as possible. 
 
-Results are stored in a SQLLite3 database and basic PHP reporting is included.
+Results are stored in a SQLite3 database and basic PHP reporting is included.
 
 This version of Warberry PI has been tested under both Python 2 and Python 3 on Raspberry Pi models 3 and 4 running Raspberry OS v5.10 and Kali Linux v2021.1. 
 
