@@ -46,7 +46,7 @@ sudo apt-get install -y bridge-utils
 sudo apt-get install -y ettercap-text-only 
 sudo apt-get install -y ike-scan 
 sudo apt-get install -y samba samba-common-bin
-git clone https://github.com/SpiderLabs/Responder.git
+git clone https://github.com/lgandx/Responder.git
 wget --no-check-certificate https://labs.portcullis.co.uk/download/enum4linux-0.8.9.tar.gz -O enum4linux-0.8.9.tar.gz
 tar -zxvf enum4linux-0.8.9.tar.gz
 mv enum4linux-0.8.9 enum4linux

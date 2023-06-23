@@ -65,7 +65,6 @@ class Hostname:
         print(" ")
         
         try:
-            #subprocess.call('cme -t 50 --timeout 2 smb %s  > Results/hostnames' % CIDR, shell=True)
             subprocess.call('crackmapexec -t 50 --timeout 2 smb %s | tee Results/hostnames' % CIDR, shell=True)
             #Discover live hosts
             nm=nmap.PortScanner()

@@ -30,8 +30,7 @@ def banner():
 
              TACTICAL EXPLOITATION
 
-                            @sec_groundzero
-                            secgroundzero@gmail.com
+                                      info@downsway.uk
 
   Version: %s              Codename: %s
 

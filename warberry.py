@@ -30,8 +30,8 @@ def warberry():
 
             TACTICAL EXPLOITATION
 
-v5.1                              @sec_groundzero
-                          secgroundzero@gmail.com
+v6.0                              
+                             info@downsway.uk
 ''') + bcolors.ENDC
 
     parser = OptionParser(usage= "usage: sudo %prog [options]",version=version)
