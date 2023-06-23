@@ -70,7 +70,6 @@ cd dnspython/
 python setup.py install
 ```
 
-
 ### Run Warberry3 
 
 sudo -E ./run_warberry.sh
