@@ -18,7 +18,7 @@ Just find a network port and plug it in. The scripts have been designed in a way
 
 Results are stored in a SQLite3 database and basic PHP reporting is included.
 
-This version of WarberryPi has been tested under both Python 2 and Python 3 on Raspberry Pi models 3 and 4 running Raspberry OS v5.10 and Kali Linux v2021.1. 
+This version of WarberryPi has been tested under Python 3 on Raspberry Pi models 3 and 4 running Raspberry OS and Kali Linux. 
 
 
 #### Disclaimer
@@ -61,7 +61,6 @@ Options:
 
 For Python 3 run ```sudo bash setup_python3.sh```
 
-For Python 2 run ```sudo bash setup_python2.sh```
 
 #### To address the issue with ImportError: No module named dns follow these steps
 
@@ -70,6 +69,11 @@ git clone https://github.com/rthalley/dnspython
 cd dnspython/
 python setup.py install
 ```
+
+
+### Run Warberry3 
+
+sudo -E ./run_warberry.sh
 
 
 ### Reporting 
