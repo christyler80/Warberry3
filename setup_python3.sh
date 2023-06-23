@@ -16,8 +16,8 @@ fi
 mkdir Tools
 pip3 install dnspython
 pip3 install setuptools
-sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
-pip3 install asn1crypto==1.4.0
+sudo apt-get install -y libssl-dev libffi-dev python-dev-is-python3 build-essential
+pip3 install asn1crypto
 sudo apt-get install crackmapexec
 pip3 install crackmapexec
 sudo apt-get install -y nbtscan 
