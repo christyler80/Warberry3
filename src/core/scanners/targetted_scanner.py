@@ -25,10 +25,10 @@ class targettedScanner:
         self.scanners={}
 
     def single_port_scanner(self,CIDR, intensity, iface, hostlist, war_db):
-        print(" ")
-        print(bcolors.OKGREEN + " [ TARGETTED SERVICES NETWORK SCANNER MODULE ]\n" + bcolors.ENDC)
-        print("\n[*] Beginning Scanning Subnet %s" % CIDR)
-        print(" ")
+        print( "\r" +" ")
+        print( "\r" +bcolors.OKGREEN + " [ TARGETTED SERVICES NETWORK SCANNER MODULE ]\r\n" + bcolors.ENDC)
+        print( "\r" +"\r\n[*] Beginning Scanning Subnet %s" % CIDR)
+        print( "\r" +" ")
 
         # port_obj_reader reads portlist_config file and creates a list with port_objects for scalability.
         # port list input filename is as below.
@@ -54,7 +54,7 @@ class Scanner:
         else:
             port = str(port).translate(None, '\'\"][ ')
         port = port.split(',')
-        print("[+] Scanning for " + name + " ...")
+        print( "\r" +"[+] Scanning for " + name + " ... \r\n")
         nm = nmap.PortScanner()
         hosts = []
         for i in range(0, len(port)):
@@ -77,12 +77,12 @@ class Scanner:
             for h in hostlist:
                 nm.scan(hosts=h, arguments=arg)
                 for host in nm.all_hosts():
-                    print("----------------------------------------------------")
+                    print( "\r" +"----------------------------------------------------")
                     hosts.append(host)
-                    print(bcolors.OKGREEN + "*** " + name + " Found : %s via port " % host + str(
+                    print( "\r" +bcolors.OKGREEN + "*** " + name + " Found : %s via port " % host + str(
                         port) + " ***" + bcolors.ENDC)
                     war_db.insertScanner(name,host)
-                    print(bcolors.TITLE + message + bcolors.ENDC)
-                    #print(bcolors.TITLE + "\n[+] Done! Results saved in warberry.db"  "\n" + bcolors.ENDC)
+                    print( "\r" +bcolors.TITLE + message + bcolors.ENDC + "\r")
+                    #print( "\r" +bcolors.TITLE + "\r\n[+] Done! Results saved in warberry.db"  "\r\n" + bcolors.ENDC)
         return hosts
 

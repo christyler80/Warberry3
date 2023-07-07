@@ -22,8 +22,8 @@ def port_obj_reader(filename):
     with open('src/core/scanners/portlist_config','r') as ports_input_file:
         for line in ports_input_file:
             f=line.split(',')
-            s=f[5]     #this is to get only y/n not \n
-            f[5]=s[0]   #this is to get only y/n not \n
+            s=f[5]     #this is to get only y/n not \r\n
+            f[5]=s[0]   #this is to get only y/n not \r\n
             portOB = port_object.port_ob(f[0],f[1],f[2],f[3],f[4],f[5])
             ports_obj_list.append(portOB)
     return ports_obj_list

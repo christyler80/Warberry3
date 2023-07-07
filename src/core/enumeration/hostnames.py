@@ -53,19 +53,20 @@ class Hostname:
 
     def findHostnames(self, int_ip, CIDR):
 
-        print(bcolors.OKGREEN + "      [ HOSTNAMES ENUMERATION MODULE ]\n" + bcolors.ENDC)
+        print( "\r" +bcolors.OKGREEN + "      [ HOSTNAMES ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
         hostname = socket.gethostname()
 
-        res_table = PrettyTable([bcolors.OKGREEN + '[IP]' + bcolors.ENDC, bcolors.OKGREEN + '[Hostname]' + bcolors.ENDC,
+        res_table = PrettyTable(['\r' + bcolors.OKGREEN + '[IP]' + bcolors.ENDC, bcolors.OKGREEN + '[Hostname]' + bcolors.ENDC,
                                  bcolors.OKGREEN + '[Domain]' + bcolors.ENDC,
                                  bcolors.OKGREEN + '[Operating System]' + bcolors.ENDC], border=False, header=True)
         res_table.align = "l"
-        print("Searching for hostnames in %s...\n" % CIDR)
-        print("Current Hostname:" + bcolors.TITLE + " %s" % hostname + bcolors.ENDC)
-        print(" ")
+        print( "\r" +"Searching for hostnames in %s...\r\n" % CIDR)
+        print( "\r" +"Current Hostname:" + bcolors.TITLE + " %s" % hostname + bcolors.ENDC)
+        print( "\r" +" ")
         
-        try:
-            subprocess.call('crackmapexec -t 50 --timeout 2 smb %s | tee Results/hostnames' % CIDR, shell=True)
+        if 1 == 1:
+        #try:
+            subprocess.call('crackmapexec -t 50 --timeout 2 smb %s | tee Results/hostnames >/dev/null' % CIDR, shell=True)
             #Discover live hosts
             nm=nmap.PortScanner()
             nm_arp=nm.scan(hosts=CIDR,arguments="-sn")
@@ -99,11 +100,11 @@ class Hostname:
             with open("Results/operating_systems", "r") as oper:
                 os_gathered = oper.readlines()
 
-            #subprocess.call("rm Results/ips_gathered", shell=True)
-            #subprocess.call("rm Results/hostnames_gathered", shell=True)
-            #subprocess.call("rm Results/domains_gathered", shell=True)
-            #subprocess.call("rm Results/operating_systems", shell=True)
-            #subprocess.call("rm Results/hostnames", shell=True)  
+            subprocess.call("rm Results/ips_gathered", shell=True)
+            subprocess.call("rm Results/hostnames_gathered", shell=True)
+            subprocess.call("rm Results/domains_gathered", shell=True)
+            subprocess.call("rm Results/operating_systems", shell=True)
+            subprocess.call("rm Results/hostnames", shell=True)  
     
             # Get the array length for the loop
             length = len(ips_gathered)
@@ -118,18 +119,18 @@ class Hostname:
             # Write the results on stdout and DB
             for i in range(0, length):
                 if self.ips_gathered[i].strip() != int_ip.strip():
-                    res_table.add_row([self.ips_gathered[i].strip(), self.hostnames_gathered[i].strip(),
+                    res_table.add_row(["\r" + self.ips_gathered[i].strip(), self.hostnames_gathered[i].strip(),
                                        self.domains_gathered[i].strip(), self.os_gathered[i].strip()])
             print(res_table)
-        except:
-            print(bcolors.FAIL + "No Hostnames Found\n" + bcolors.ENDC)
+        #except:
+        #    print( "\r" +bcolors.FAIL + "No Hostnames Found\r\n" + bcolors.ENDC)
         length = len(self.live_ips)
         if length != 0:
-            print(bcolors.OKGREEN + "\n      [  SCOPE DEFINITION MODULE ]\n" + bcolors.ENDC)
+            print( "\r" +bcolors.OKGREEN + "\r\n      [  SCOPE DEFINITION MODULE ]\r\n" + bcolors.ENDC)
             for ip in self.live_ips:
                 if str(ip).strip() != str(int_ip).strip():
-                    print(bcolors.TITLE + "[+] " + bcolors.ENDC + "%s " % str(ip).strip() + "added to scope!")
+                    print( "\r" +bcolors.TITLE + "[+] " + bcolors.ENDC + "%s " % str(ip).strip() + "added to scope!")
         else:
-            print(
+            print( "\r" +
                     bcolors.WARNING + "NO LIVE IPS FOUND! THERE IS NO NEED TO CONTINUE! WARBERRY WILL NOW EXIT!" + bcolors.ENDC)
             sys.exit(1)

@@ -27,8 +27,8 @@ def bluetooth_enum():
     with open('Results/model', 'r') as pi_model:
         for model in pi_model:
             if model.strip() == "a02082":
-                print (" ")
-                print (bcolors.OKGREEN + "      [ BLUETOOTH ENUMERATION MODULE ]\n" + bcolors.ENDC)
+                print ( "\r" +" ")
+                print ( "\r" +bcolors.OKGREEN + "      [ BLUETOOTH ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
                 length=0
                 for i in range(10):
                     blues=discover()
@@ -37,9 +37,9 @@ def bluetooth_enum():
     
     subprocess.call("rm Results/model", shell=True)
     if length == 0:
-        print(bcolors.WARNING + "[-] No Bluetooth Devices Captured" + bcolors.ENDC)
+        print( "\r" +bcolors.WARNING + "[-] No Bluetooth Devices Captured" + bcolors.ENDC)
     else:
-        print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+        print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return blues
 
 
@@ -53,6 +53,6 @@ def discover():
         b["device"]=str(device)
         bluef.append(b)
 
-        print (bcolors.OKGREEN + "[+]" + bcolors.ENDC + " Found Bluetooth Device: " + str(name))
-        print (bcolors.OKGREEN + "[+]" + bcolors.ENDC + " MAC address: " + str(device))
+        print ( "\r" +bcolors.OKGREEN + "[+]" + bcolors.ENDC + " Found Bluetooth Device: " + str(name))
+        print ( "\r" +bcolors.OKGREEN + "[+]" + bcolors.ENDC + " MAC address: " + str(device))
     return bluef

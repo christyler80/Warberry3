@@ -57,15 +57,15 @@ class ScanThread(threading.Thread):
         for h in self.hostlist:
             nm.scan(hosts=h, arguments=arg)
             for host in nm.all_hosts():
-                self.output += "\n----------------------------------------------------\n"
+                self.output += "\r\n----------------------------------------------------\r\n"
                 self.hosts.append(host)
                 #x=WarberryDB()
                 #self.lock.acquire()
                 #x.insertScannerQ(self.session,self.name,host)
                 #self.lock.release()
                 self.output = self.output + bcolors.OKGREEN + "*** " + self.name + " Found : %s via port " % host + self.port + " ***" + bcolors.ENDC
-                self.output = self.output + "\n" + bcolors.TITLE + self.message + "\n"+ bcolors.ENDC
-                #self.output = self.output + bcolors.TITLE + "\n[+] Done! Results saved in warberry.db"  "\n" + bcolors.ENDC
+                self.output = self.output + "\r\n" + bcolors.TITLE + self.message + "\r\n"+ bcolors.ENDC
+                #self.output = self.output + bcolors.TITLE + "\r\n[+] Done! Results saved in warberry.db"  "\r\n" + bcolors.ENDC
 
 class ThreadPortScanner:
 
@@ -73,10 +73,10 @@ class ThreadPortScanner:
         self.scanners = {}
 
     def thread_port_scanner(self, CIDR, intensity, iface,hostlist,session):
-        print(" ")
-        print(bcolors.OKGREEN + " [ TARGETTED SERVICES NETWORK SCANNER MODULE ]\n" + bcolors.ENDC)
-        print(bcolors.TITLE + "[*] Beginning Scan of live IPs in scope in subnet %s with %s intensity." % (CIDR, intensity) + bcolors.ENDC)
-        print(" ")
+        print( "\r" +" ")
+        print( "\r" +bcolors.OKGREEN + " [ TARGETTED SERVICES NETWORK SCANNER MODULE ]\r\n" + bcolors.ENDC)
+        print( "\r" +bcolors.TITLE + "[*] Beginning Scan of live IPs in scope in subnet %s with %s intensity." % (CIDR, intensity) + bcolors.ENDC)
+        print( "\r" +" ")
         threads = []
         ports_list = port_obj_reader("portlist_config")
         for i in ports_list:
@@ -99,5 +99,5 @@ class ThreadPortScanner:
         x=WarberryDB()
         for i in t.hosts:
             x.insertScannerQ(session,t.name,i)
-            print(t.output)
+            print( "\r" +t.output)
 

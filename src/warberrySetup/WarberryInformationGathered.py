@@ -37,9 +37,9 @@ class WarberryInformationGathered:
     def setExternalIP(self):
         self.external_ip=external_IP_recon()
         if (self.external_ip==None):
-            print(bcolors.WARNING + "[!] Could not reach the outside world. Possibly behind a firewall or some kind filtering\n" + bcolors.ENDC)
+            print( "\r" +bcolors.WARNING + "[!] Could not reach the outside world. Possibly behind a firewall or some kind filtering\r\n" + bcolors.ENDC)
         else:
-            print('[+] External IP obtained: ' + bcolors.OKGREEN + '%s\n' %self.external_ip + bcolors.ENDC)
+            print( "\r" +'[+] External IP obtained: ' + bcolors.OKGREEN + '%s\r\n' %self.external_ip + bcolors.ENDC)
 
     def getExternalIP(self):
         return self.external_ip
@@ -89,7 +89,7 @@ class WarberryInformationGathered:
             session=war_db.getSession()
             self.scanners = scanner.thread_port_scanner(self.CIDR, intensity, iface, self.liveIPs,session)
         self.scanners = scanner.scanners
-        print(bcolors.TITLE + "\n[+] Done! Results saved in warberry.db"  "\n" + bcolors.ENDC)
+        print( "\r" +bcolors.TITLE + "\r\n[+] Done! Results saved in warberry.db"  "\r\n" + bcolors.ENDC)
         war_db.updateStatus("Completed Port Scanning")
         status.warberryOKGREEN("Completed Port Scanning")
         
@@ -174,7 +174,7 @@ class WarberryInformationGathered:
             if len(self.scanners["Webservers"])>0:
                 webs_set = set(self.scanners["Webservers"])
                 self.enumeration["Webservers_enum"] = list(webs_set)
-                #print(self.enumeration)
+                #print( "\r" +self.enumeration)
 
     def bluetooth(self,status, blue,war_db):
         if blue == True:
@@ -198,31 +198,31 @@ class WarberryInformationGathered:
             for host in hosts:
                 for mvp in mvp_hosts:
                     if host.strip() == mvp.strip():
-                        print (bcolors.OKGREEN + "\n[+] Found interesting hostname %s\n" % mvp.strip() + bcolors.ENDC)
+                        print ( "\r" +bcolors.OKGREEN + "\r\n[+] Found interesting hostname %s\r\n" % mvp.strip() + bcolors.ENDC)
                         mvps.append(host.strip())
                         mvp_found = True
 
             if mvp_found != True:
-                print(bcolors.WARNING + "\n[-] No interesting names found. Continuing with the same hostname" + bcolors.ENDC)
+                print( "\r" +bcolors.WARNING + "\r\n[-] No interesting names found. Continuing with the same hostname" + bcolors.ENDC)
 
             elif mvp_found == True:
                 mvp_changed = False
                 for mvp in mvps:
                     if mvp.strip() == hostname:
-                        print(bcolors.TITLE + "[*] Hostname is stealthy as is. Keeping the same!" + bcolors.ENDC)
+                        print( "\r" +bcolors.TITLE + "[*] Hostname is stealthy as is. Keeping the same!" + bcolors.ENDC)
                     else:
                         if mvp_changed == False:
                             mvp_changed = True
                             with open('/etc/hostname', 'w') as hostname:
                                 hostname.write(mvp.strip())
                             with open('/etc/hosts', 'w') as hosts:
-                                print ("[*] Changing Hostname from " + bcolors.WARNING + socket.gethostname() + bcolors.ENDC + " to " + bcolors.OKGREEN + mvp + bcolors.ENDC)
-                                hosts.write('127.0.0.1\tlocalhost\n::1\tlocalhost ip6-localhost ip6-loopback\nff02::1\tip6-allnodes\nff02::2\tip6-allrouters\n\n127.0.1.1\t%s' % mvp.strip())
-                    #hosts.write('127.0.0.1\tlocalhost.localdomain\tlocalhost ip6-localhost\n127.0.1.1\t%s' % mvp.strip())
+                                print ( "\r" +"[*] Changing Hostname from " + bcolors.WARNING + socket.gethostname() + bcolors.ENDC + " to " + bcolors.OKGREEN + mvp + bcolors.ENDC)
+                                hosts.write('127.0.0.1\tlocalhost\r\n::1\tlocalhost ip6-localhost ip6-loopback\r\nff02::1\tip6-allnodes\r\nff02::2\tip6-allrouters\r\n\r\n127.0.1.1\t%s' % mvp.strip())
+                    #hosts.write('127.0.0.1\tlocalhost.localdomain\tlocalhost ip6-localhost\r\n127.0.1.1\t%s' % mvp.strip())
                     subprocess.call('hostname %s' %mvp.strip(),shell=True)
                     subprocess.call('sudo systemctl daemon-reload 2>/dev/null', shell=True)
                     subprocess.call('sudo /etc/init.d/hostname.sh 2>/dev/null', shell=True)
-                    print ("[+] New hostname: " + bcolors.TITLE + socket.gethostname() + bcolors.ENDC)
+                    print ( "\r" +"[+] New hostname: " + bcolors.TITLE + socket.gethostname() + bcolors.ENDC)
                 hosts.close()
                 hostname.close()
 

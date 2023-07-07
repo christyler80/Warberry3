@@ -19,7 +19,7 @@ def banner():
 
         version = "6.0"
         codename = "Revival"
-        print (bcolors.TITLE + ( '''
+        print ( "\r" +bcolors.TITLE + ( '''
 *********************************************************
  _    _  ___  ____________ ___________________   _______ 
 | |  | |/ _ \ | ___ \ ___ \  ___| ___ \ ___ \ \ / /____ \ 
@@ -41,7 +41,7 @@ def banner():
 
 def banner_full():
 
-        print (bcolors.TITLE + ( '''
+        print ( "\r" +bcolors.TITLE + ( '''
  _    _  ___  ____________ ___________________   _______ 
 | |  | |/ _ \ | ___ \ ___ \  ___| ___ \ ___ \ \ / /____ \ 
 | |  | / /_\ \| |_/ / |_/ / |__ | |_/ / |_/ /\ V / ___/ / 
@@ -84,7 +84,7 @@ example usage: sudo python warberry.py -r                   Use only the recon m
 
 def banner_full_help():
 
-        print (bcolors.TITLE + ( '''
+        print ( "\r" +bcolors.TITLE + ( '''
  _    _  ___  ____________ ___________________   _______ 
 | |  | |/ _ \ | ___ \ ___ \  ___| ___ \ ___ \ \ / /____ \ 
 | |  | / /_\ \| |_/ / |_/ / |__ | |_/ / |_/ /\ V / ___/ / 

@@ -24,9 +24,9 @@ class static:
 
     def static_bypass(self,ifname):
 
-        print(bcolors.OKGREEN + "      [ STATIC IP SETUP MODULE ]\n" + bcolors.ENDC)
+        print( "\r" +bcolors.OKGREEN + "      [ STATIC IP SETUP MODULE ]\r\n" + bcolors.ENDC)
 
-        print("ARP Scanning Network for IPs\n")
+        print( "\r" +"ARP Scanning Network for IPs\r\n")
         #subprocess.call("sudo netdiscover -i %s -P -l ./src/discover | grep -P -o \'([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+).*? ' | grep -P -o \'[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > ../Results/ips_discovered" %ifname, shell = True)
     nm=nmap.PortScanner()
     nm_arp=nm.scan(hosts="192.168.10.0/24",arguments="-sP")
@@ -36,21 +36,21 @@ class static:
         if os.stat('Results/ips_discovered').st_size !=0:
             discover = open("Results/ips_discovered","r")
             ips = discover.readlines()
-            print("Testing validity of %s IP(s)captured" % (sum(1 for _ in discover)))
+            print( "\r" +"Testing validity of %s IP(s)captured" % (sum(1 for _ in discover)))
             discover.close()
 
             for ip in ips:
                 if not ip_validate(ip):
-                    print(bcolors.OKGREEN + "[+] %s is valid" %ip.strip() + bcolors.ENDC)
+                    print( "\r" +bcolors.OKGREEN + "[+] %s is valid" %ip.strip() + bcolors.ENDC)
                     self.valid_IPS_Discovered.append(ip)
                 else:
-                    print(bcolors.FAIL + "[-] %s is invalid" %ip.strip() + bcolors.ENDC)
+                    print( "\r" +bcolors.FAIL + "[-] %s is invalid" %ip.strip() + bcolors.ENDC)
 
             self.valid_IPS_Discovered.sort()
 
             return (create_subnet(ifname))
         else:
-            print(bcolors.FAIL + "[-] No IPs captured! Exiting" + bcolors.ENDC)
+            print( "\r" +bcolors.FAIL + "[-] No IPs captured! Exiting" + bcolors.ENDC)
             return
 
 
@@ -65,7 +65,7 @@ class static:
 
     def set_static(self,ifname):
 
-        print ("\nARP Scanning based on targetted CIDR\n")
+        print ( "\r" +"\r\nARP Scanning based on targetted CIDR\r\n")
         subprocess.call(
                 "sudo netdiscover -i %s -P -l ./src/discover | grep -P -o \'([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+).*? ' | grep -P -o \'[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > Results/used_ips" % ifname,
                 shell=True)
@@ -84,7 +84,7 @@ class static:
                 isUsed = False
                 for used in used_ips:
                     if ((available.strip() == used.strip()) and (isUsed == False)):
-                        print(bcolors.FAIL + "[-] IP %s is in use, excluding from static list" % used.strip() + bcolors.ENDC)
+                        print( "\r" +bcolors.FAIL + "[-] IP %s is in use, excluding from static list" % used.strip() + bcolors.ENDC)
                         isUsed = True
                     if (isUsed == False):
                         statics.append(available)
@@ -93,10 +93,10 @@ class static:
                 total_frees = sum(1 for _ in static)
                 if total_frees > 0:
                     print
-                    bcolors.TITLE + '\n%s Available IPs to choose from.' % total_frees + bcolors.ENDC
+                    bcolors.TITLE + '\r\n%s Available IPs to choose from.' % total_frees + bcolors.ENDC
                 else:
                     print
-                    bcolors.FAIL + "No free IPs Found\n" + bcolors.ENDC
+                    bcolors.FAIL + "No free IPs Found\r\n" + bcolors.ENDC
 
             with open('Results/statics', 'r') as statics:
                 line_count = (sum(1 for _ in statics))
@@ -122,5 +122,5 @@ class static:
                             print
                             bcolors.WARNING + "[-] Failed. IP %s is not valid" % static.strip() + bcolors.ENDC
                     print
-                    "Attempting to bypass MAC Filtering\n"
+                    "Attempting to bypass MAC Filtering\r\n"
                     return (macbypass(CIDR, ifname))

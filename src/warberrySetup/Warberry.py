@@ -16,7 +16,7 @@ class Warberry:
         start=int(time.time())
         #If not sudo
         if not os.geteuid() == 0:
-            self.status.warberryFAIL("*** You are not running as root and some modules will fail ***\nRun again with sudo.")
+            self.status.warberryFAIL("*** You are not running as root and some modules will fail ***\r\nRun again with sudo.")
             sys.exit(-1)
 
         dhcp_check(self.status)
@@ -41,7 +41,7 @@ class Warberry:
         warberryDB.updateStatus("Completed Common Info gathering")
         
         if self.warberryInformationGathering.getInternalIP() is None:
-            print("exit")
+            print( "\r" +"exit")
             exit
         else:
             warberryDB.updateElements(self.warberryInformationGathering)
@@ -69,7 +69,7 @@ class Warberry:
         
 
         FinishTime=start+int(self.warberryArgs.getTime())
-        print ("Waiting for Responder ...")
+        print ( "\r" +"Waiting for Responder ...")
         current=int (time.time())
         while (current<FinishTime):
             current=int(time.time())
@@ -78,11 +78,11 @@ class Warberry:
         hashes=responderResults.retrieveHashes()
         if (len(hashes)>0):
             warberryDB.saveHashes(hashes)
-            print ("Responder done!!")
+            print ( "\r" +"Responder done!!")
 
         warberryDB.updateEndTime()
         
-        print ("All done!!")
+        print ( "\r" +"All done!!")
 
         #p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE)
         #out, err = p.communicate()

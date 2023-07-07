@@ -18,11 +18,11 @@ from src.utils.utils import *
 
 
 def shares_enum(iface, hosts):
-        print(" ")
-        print(bcolors.OKGREEN + "      [ SMB SHARES ENUMERATION MODULE ]\n" + bcolors.ENDC)
+        print( "\r" +" ")
+        print( "\r" +bcolors.OKGREEN + "      [ SMB SHARES ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
         shares_res=[]
         for host in hosts:
-            print (bcolors.TITLE +"[*] " + bcolors.ENDC + "Enumerating shares on %s" %host.strip())
+            print ( "\r" +bcolors.TITLE +"[*] " + bcolors.ENDC + "Enumerating shares on %s" %host.strip())
             nm = nmap.PortScanner()
             nm.scan(hosts=host, arguments='-Pn -T4 --script smb-enum-shares -p445 -e ' + iface + ' --open')
             result = nm.get_nmap_last_output()
@@ -35,15 +35,15 @@ def shares_enum(iface, hosts):
                 shares.pop(0)
                 shares = shares[:-1]
                 shares_res.append(shares)
-        print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+        print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
         return shares_res
 
 def smb_users(iface, hosts):
-        print(" ")
-        print(bcolors.OKGREEN + "      [ SMB USERS ENUMERATION MODULE ]\n" + bcolors.ENDC)
+        print( "\r" +" ")
+        print( "\r" +bcolors.OKGREEN + "      [ SMB USERS ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
         users_res=[]
         for host in hosts:
-            print (bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating users on %s" %host.strip())
+            print ( "\r" +bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating users on %s" %host.strip())
             nm = nmap.PortScanner()
             nm.scan(hosts=host, arguments='-Pn -T4 -sU -sS --script smb-enum-users -p U:137,T:139 -e ' + iface + ' --open')
             result = nm.get_nmap_last_output()
@@ -56,16 +56,16 @@ def smb_users(iface, hosts):
                 users.pop(0)
                 users = users[:-1]
                 users_res.append(users)
-        print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+        print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
         return users_res
 
 
 def nfs_enum(iface, shares):
-        print(" ")
-        print(bcolors.OKGREEN + "      [ NFS ENUMERATION MODULE ]\n" + bcolors.ENDC)
+        print( "\r" +" ")
+        print( "\r" +bcolors.OKGREEN + "      [ NFS ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
         nfs_res=[]
         for share in shares:
-            print(bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating NFS Shares on %s" %share.strip())
+            print( "\r" +bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating NFS Shares on %s" %share.strip())
             nm = nmap.PortScanner()
             nm.scan(hosts=share, arguments='-Pn -sV -T4 --script afp-showmount -p111 -e ' + iface + ' --open')
             result = nm.get_nmap_last_output()
@@ -78,15 +78,15 @@ def nfs_enum(iface, shares):
                 nfs.pop(0)
                 nfs = nfs[:-1]
                 nfs_res.append(nfs)
-        print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+        print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
         return nfs_res
 
 def mysql_enum(iface, dbs):
-    print(" ")
-    print(bcolors.OKGREEN + "      [ MYSQL ENUMERATION MODULE ]\n" + bcolors.ENDC)
+    print( "\r" +" ")
+    print( "\r" +bcolors.OKGREEN + "      [ MYSQL ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
     mysql_res=[]
     for db in dbs:
-        print("[*] Enumerating MYSQL DB on %s" %db.strip())
+        print( "\r" +"[*] Enumerating MYSQL DB on %s" %db.strip())
         nm = nmap.PortScanner()
         nm.scan(hosts=db, arguments='-Pn -T4 -sV --script mysql-enum -p3306 -e ' + iface + ' --open')
         result = nm.get_nmap_last_output()
@@ -99,16 +99,16 @@ def mysql_enum(iface, dbs):
             mysql.pop(0)
             mysql = mysql[:-1]
             mysql_res.append(mysql)
-    print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+    print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return mysql_res
 
 
 def mssql_enum(iface,dbs):
-    print(" ")
-    print(bcolors.OKGREEN + "      [ MSSQL ENUMERATION MODULE ]\n" + bcolors.ENDC)
+    print( "\r" +" ")
+    print( "\r" +bcolors.OKGREEN + "      [ MSSQL ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
     mssql_res=[]
     for db in dbs:
-        print ("[*] Enumerating MSSQL DB on %s" %db.strip())
+        print ( "\r" +"[*] Enumerating MSSQL DB on %s" %db.strip())
         nm = nmap.PortScanner()
         nm.scan(hosts=db, arguments='-Pn -T4 -sV --script ms-sql-info -p1433 -e ' + iface + ' --open')
         result = nm.get_nmap_last_output()
@@ -121,16 +121,16 @@ def mssql_enum(iface,dbs):
             mssql.pop(0)
             mssql = mssql[:-1]
             mssql_res.append(mssql)
-    print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+    print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return mssql_res
 
 
 def ftp_enum(iface,ftps):
-    print(" ")
-    print(bcolors.OKGREEN + "      [ ANON FTP ENUMERATION MODULE ]\n" + bcolors.ENDC)
+    print( "\r" +" ")
+    print( "\r" +bcolors.OKGREEN + "      [ ANON FTP ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
     ftp_res=[]
     for ftp in ftps:
-        print (bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating FTP on %s" %ftp.strip())
+        print ( "\r" +bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating FTP on %s" %ftp.strip())
         nm = nmap.PortScanner()
         nm.scan(hosts=ftp, arguments='-Pn -T4 -sV --script ftp-anon -p22 -e ' + iface + ' --open')
         result = nm.get_nmap_last_output()
@@ -143,16 +143,16 @@ def ftp_enum(iface,ftps):
             ftpF.pop(0)
             ftpF = ftpF[:-1]
             ftp_res.append(ftpF)
-    print(bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+    print( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return ftp_res
 
 
 def snmp_enum(iface,snmps):
-    print(" ")
-    print(bcolors.OKGREEN + "      [ SNMP ENUMERATION MODULE ]\n" + bcolors.ENDC)
+    print( "\r" +" ")
+    print( "\r" +bcolors.OKGREEN + "      [ SNMP ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
     snmp_res=[]
     for snmp in snmps:
-        print (bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating SNMP on %s" %snmp.strip())
+        print ( "\r" +bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating SNMP on %s" %snmp.strip())
         nm = nmap.PortScanner()
         nm.scan(hosts=snmp, arguments='-Pn -T4 -sV -sU -p161 -e ' + iface + ' --open')
         result = nm.get_nmap_last_output()
@@ -171,15 +171,15 @@ def snmp_enum(iface,snmps):
   #          address["vendor"]=snmpF[0]["addresses"][1]["vendor"]
   #          snmpResult["Address"]=address
             snmp_res.append(snmpResult)
-    print (bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+    print ( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return snmp_res
 
 def sip_methods_enum(iface,sips):
-    print(" ")
-    print(bcolors.OKGREEN + "      [ SIP METHODS ENUMERATION MODULE ]\n" + bcolors.ENDC)
+    print( "\r" +" ")
+    print( "\r" +bcolors.OKGREEN + "      [ SIP METHODS ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
     sip_m_res=[]
     for sip in sips:
-        print (bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating SIP Methods on %s" %sip.strip())
+        print ( "\r" +bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating SIP Methods on %s" %sip.strip())
         nm = nmap.PortScanner()
         nm.scan(hosts=sip, arguments='-Pn -T4 --script sip-methods -sU -e ' + iface + ' -p 5060')
         result = nm.get_nmap_last_output()
@@ -192,15 +192,15 @@ def sip_methods_enum(iface,sips):
             sip_m.pop(0)
             sip_m = sip_m[:-1]
             sip_m_res.append(sip_m)
-    print (bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+    print ( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return sip_m_res
 
 def sip_users_enum(iface,sips):
-    print (" ")
-    print (bcolors.OKGREEN + "      [ SIP USERS ENUMERATION MODULE ]\n" + bcolors.ENDC)
+    print ( "\r" +" ")
+    print ( "\r" +bcolors.OKGREEN + "      [ SIP USERS ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
     sip_u_res=[]
     for sip in sips:
-        print (bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating SIP Users on %s" %sip.strip())
+        print ( "\r" +bcolors.TITLE + "[*] " + bcolors.ENDC + "Enumerating SIP Users on %s" %sip.strip())
         nm = nmap.PortScanner()
         nm.scan(hosts=sip, arguments='-Pn -T4 --script sip-enum-users -sU -e ' + iface + ' -p 5060')
         result = nm.get_nmap_last_output()
@@ -213,5 +213,5 @@ def sip_users_enum(iface,sips):
             sip_u.pop(0)
             sip_u = sip_u[:-1]
             sip_u_res.append(sip_u)
-    print (bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
+    print ( "\r" +bcolors.TITLE + "[+] Done! Results saved in warberry.db" + bcolors.ENDC)
     return sip_u_res

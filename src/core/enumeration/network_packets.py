@@ -18,25 +18,25 @@ from src.utils.console_colors import *
 from scapy.all import *
 
 def sniffer(status, iface, packets, expire):
-        print (" ")
+        print ( "\r" +" ")
         pcap_location = "Results/capture.pcap"
         pcap_location1= "Results/capture1.pcap"
         pcap_location2= "Results/capture2.pcap"
         pcap_location3= "Results/capture3.pcap"
 
-        print (bcolors.OKGREEN + "      [ NETWORK PACKET SNIFFING MODULE ]\n" + bcolors.ENDC)
-        print ("Sniffer will begin capturing %d packets for %d seconds" %(packets,expire))
+        print ( "\r" +bcolors.OKGREEN + "      [ NETWORK PACKET SNIFFING MODULE ]\r\n" + bcolors.ENDC)
+        print ( "\r" +"Sniffer will begin capturing %d packets for %d seconds\r" %(packets,expire))
         try:
             pack = sniff(iface=iface, timeout=expire)
             wrpcap(pcap_location1, pack)
             pack2=[]
             if (len(pack)<packets):
                 packetsTo=packets-len(pack)
-                print (bcolors.OKGREEN + "[*] "+ bcolors.ENDC +"Sniffer will continue capturing another %s packets" %packetsTo)
+                print ( "\r" +bcolors.OKGREEN + "[*] "+ bcolors.ENDC +"Sniffer will continue capturing another %s packets" %packetsTo)
                 pack2=sniff (iface=iface, count=int(packetsTo))
                 wrpcap(pcap_location2, pack2)
             else:
-                print ("Sniffer captured more than %s packets" %packets)
+                print ( "\r" +"Sniffer captured more than %s packets" %packets)
                 for i in range(0, length):
                     pack2.append(pack[i])
                 wrpcap(pcap_location3, pack2)
@@ -50,17 +50,17 @@ def sniffer(status, iface, packets, expire):
                     subprocess.call("mv %s %s" %pcap_location1%pcap_location,shell=True)
         except IOError as err:
                 errno, strerror = err.args
-                print ("I/O error({0}): {1}".format(errno, strerror))
-                print ("THE SYSTEM WILL NOW EXIT!!!")
+                print ( "\r" +"I/O error({0}): {1}".format(errno, strerror))
+                print ( "\r" +"THE SYSTEM WILL NOW EXIT!!!")
                 sys.exit(1)
         except ValueError:
-                print ("Could not convert data to an integer.")
-                print ("THE SYSTEM WILL NOW EXIT!!!")
+                print ( "\r" +"Could not convert data to an integer.")
+                print ( "\r" +"THE SYSTEM WILL NOW EXIT!!!")
                 sys.exit(1)
         except:
-                print (" ")
-        print(bcolors.OKGREEN + "[+] " + bcolors.ENDC + "Capture Completed." + bcolors.ENDC + " PCAP File Saved at " + bcolors.OKGREEN + "%s!\n" %pcap_location + bcolors.ENDC)
+                print ( "\r" +" ")
+        print( "\r" +bcolors.OKGREEN + "[+] " + bcolors.ENDC + "Capture Completed." + bcolors.ENDC + " PCAP File Saved at " + bcolors.OKGREEN + "%s!\r\n" %pcap_location + bcolors.ENDC)
         if os.path.exists("Results/arp_flush_temp"):
                 subprocess.call("sudo rm Results/arp_flush_temp", shell=True)  # delete temporary file.
 
-        status.warberryOKGREEN("Completed sniffing network packets\n")
+        status.warberryOKGREEN("Completed sniffing network packets\r\n")

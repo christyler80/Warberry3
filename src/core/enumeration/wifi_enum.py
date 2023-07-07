@@ -24,18 +24,18 @@ def wifi_enum():
     with open('Results/model', 'r') as pi_model:
         for model in pi_model:
             if model.strip() == "a02082":
-                print (" ")
-                print (bcolors.OKGREEN + "      [ Wi-Fi ENUMERATION MODULE ]\n" + bcolors.ENDC)
+                print ( "\r" +" ")
+                print ( "\r" +bcolors.OKGREEN + "      [ Wi-Fi ENUMERATION MODULE ]\r\n" + bcolors.ENDC)
 
                 subprocess.call("sudo iwlist wlan0 scan | grep ESSID | awk {'print $1'} > Results/wifis", shell = True)
                 if os.path.isfile('Results/wifis'):
                     with open('Results/wifis', 'r') as wifis:
                         if os.stat('Results/wifis').st_size != 0:
                             for wifi in wifis:
-                                print (bcolors.OKGREEN + "[+] " + bcolors.ENDC + "Found Wireless Network: %s" %wifi + bcolors.ENDC)
+                                print ( "\r" +bcolors.OKGREEN + "[+] " + bcolors.ENDC + "Found Wireless Network: %s" %wifi + bcolors.ENDC)
                                 wireless_found.append(wifi)
                         else:
-                            print (bcolors.WARNING + "[-] No Wireless Networks Captured" + bcolors.ENDC)
+                            print ( "\r" +bcolors.WARNING + "[-] No Wireless Networks Captured" + bcolors.ENDC)
     subprocess.call("rm Results/model",shell=True)
     subprocess.call("rm Results/wifis",shell=True)
     return wireless_found

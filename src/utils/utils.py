@@ -27,13 +27,13 @@ from src.utils.console_colors import *
 
 
 def dhcp_check(status):
-        status.warberryOKGREEN("      [ DHCP SERVICE CHECK MODULE ]\n")
+        status.warberryOKGREEN("      [ DHCP SERVICE CHECK MODULE ]\r\n")
         dhcp_out = str(subprocess.check_output(['ps', '-A']))
         if "dhcp" in dhcp_out:
-            print ("DHCP Service Status...\n")
+            print ( "\r" +"DHCP Service Status...\r\n")
             status.warberryFAIL("Running - Not Stealth")
         else:
-            print ("DHCP Service Status...\n")
+            print ( "\r" +"DHCP Service Status...\r\n")
             status.warberryOKGREEN("Not Running - Stealth")
 
 def netmask_recon(iface):
@@ -46,7 +46,7 @@ def netmask_recon(iface):
         except:
             subprocess.call('clear', shell=True)
             banner_full()
-            print(
+            print( "\r" +
                 bcolors.FAIL + "Interface %s seems to be down. Try Running with -I to specify an interface" % iface.encode('utf-8') + bcolors.ENDC)
             exit()
 
@@ -140,7 +140,7 @@ def manual_namechange(host_name):
         hostname.write(host_name)
     with open('/etc/hosts', 'w') as hosts:
         hosts.write(
-            '127.0.0.1\tlocalhost\n::1\tlocalhost ip6-localhost ip6-loopback\nff02::1\tip6-allnodes\nff02::2\tip6-allrouters\n\n127.0.1.1\t%s' % host_name)
+            '127.0.0.1\tlocalhost\r\n::1\tlocalhost ip6-localhost ip6-loopback\r\nff02::1\tip6-allnodes\r\nff02::2\tip6-allrouters\r\n\r\n127.0.1.1\t%s' % host_name)
     subprocess.call('sudo systemctl daemon-reload 2>/dev/null', shell=True)
     subprocess.call('sudo /etc/init.d/hostname.sh 2>/dev/null', shell=True)
     print
