@@ -61,7 +61,7 @@ Options:
 
 Warberry3 is designed to be run as root, otherwsise some modules will fail to install and/or run corectly.
 
-On some systems, it may be necessary to for Warberry3 to be installed and run from inside Python Vertual Envirnment.
+On some systems, it may be necessary for Warberry3 to be installed and run from inside a Python Vertual Envirnment.
 
 ```
 sudo apt-get update && sudo apt-get update
