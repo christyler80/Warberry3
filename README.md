@@ -16,7 +16,7 @@ The WarBerry python script runs a collection of open source scanning tools to pr
 
 These tools include nmap, crackmapexec, tcpdump, netdiscover and others typically found in Kali Linux. 
 
-Just find a network port and plug it in. The scripts have been designed in a way that the approach is targeted to avoid noise in the network that could lead to detection and to be as efficient as possible. 
+The scripts have been designed to avoid noise in the network that could lead to detection and to be as efficient as possible. 
 
 Results are stored in a SQLite3 database and basic PHP reporting is included.
 
