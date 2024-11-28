@@ -100,7 +100,7 @@ python setup.py install
 ### Run Warberry3 
 
 ```
-./warberry3_run.sh                        Depending on network the and complexity, this may take many hours to complete.
+./warberry3_run.sh                        Depending on network size and complexity, this may take several hours to complete.
 ```
 
 
