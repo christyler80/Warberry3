@@ -18,7 +18,7 @@ Just find a network port and plug it in. The scripts have been designed in a way
 
 Results are stored in a SQLite3 database and basic PHP reporting is included.
 
-This version of WarberryPi has been tested under Python 3 on Raspberry Pi models 3 and 4 running Raspberry OS and Kali Linux. 
+This version of WarberryPi has been developed to run under Python 3 on Debian based distros such as Ubuntu and Kali Linux.
 
 
 #### Disclaimer
