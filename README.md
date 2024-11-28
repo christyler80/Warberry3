@@ -12,7 +12,9 @@ The original author stopped maintaining the secgroundzero/warberry project in No
  
 **WarBerryPi** was built to be used as a hardware implant during red teaming scenarios where we want to obtain as much information as possible in a short period of time with being as stealthy as possible. 
 
-The WarBerry python script is a collection of open source scanning tools put together to provide that functionality. These tools include nmap, crackmapexec, tcpdump, netdiscover and others typically found in Kali Linux. 
+The WarBerry python script runs a collection of open source scanning tools to provide that functionality.
+
+These tools include nmap, crackmapexec, tcpdump, netdiscover and others typically found in Kali Linux. 
 
 Just find a network port and plug it in. The scripts have been designed in a way that the approach is targeted to avoid noise in the network that could lead to detection and to be as efficient as possible. 
 
