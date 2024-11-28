@@ -117,8 +117,8 @@ class WarberryArgs:
 
     def clearFunction(self):
         if (self.clear == True):
-            subprocess.call('./empty.sh',shell=True);
-            subprocess.call('./restore.sh',shell=True);
+            subprocess.call('./db_empty.sh',shell=True);
+            subprocess.call('./db_create.sh',shell=True);
             sys.exit(0)
 
     def setClear(self, c):

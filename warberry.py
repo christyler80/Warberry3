@@ -14,6 +14,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 """
+
 from optparse import OptionParser
 from src.utils.console_colors import *
 from src.warberrySetup.Warberry import *
@@ -22,11 +23,11 @@ def warberry():
 
     version = bcolors.TITLE + ( '''
  _    _  ___  ____________ ___________________   _______ 
-| |  | |/ _ \ | ___ \ ___ \  ___| ___ \ ___ \ \ / /____ \ 
-| |  | / /_\ \| |_/ / |_/ / |__ | |_/ / |_/ /\ V / ___/ / 
-| |/\| |  _  ||    /| ___ \  __||    /|    /  \ / |____ \ 
-\  /\  / | | || |\ \| |_/ / |___| |\ \| |\ \  | |  ___/ / 
- \/  \/\_| |_/\_| \_\____/\____/\_| \_\_| \_| \_/ |____/ 
+| |  | |/ _ \\ | ___ \\ ___ \\  ___| ___ \\ ___ \\ \\ / /____ \\ 
+| |  | / /_\\ \\| |_/ / |_/ / |__ | |_/ / |_/ /\\ V / ___/ / 
+| |/\\| |  _  ||    /| ___ \\  __||    /|    /  \\ / |____ \\ 
+\\  /\\  / | | || |\\ \\| |_/ / |___| |\\ \\| |\\ \\  | |  ___/ / 
+ \\/  \\/\\_| |_/\\_| \\_\\____/\\____/\\_| \\_\\_| \\_| \\_/ |____/ 
 
             TACTICAL EXPLOITATION
 
