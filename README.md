@@ -59,7 +59,7 @@ Options:
 
 ### Installation
 
-For Python 3 run ```sudo bash setup_python3.sh```
+For Python 3 run ```sudo bash warberry3_setup.sh```
 
 
 #### To address the issue with ImportError: No module named dns follow these steps
@@ -72,7 +72,7 @@ python setup.py install
 
 ### Run Warberry3 
 
-sudo -E ./run_warberry.sh
+sudo -E ./warberry3_run.sh
 
 
 ### Reporting 
