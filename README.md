@@ -62,7 +62,8 @@ Warberry3 is designed to be run as root, otherwsise some modules will fail to in
 
 On some systems, it may be necessary to for Warberry3 to be installed and run from inside Python Vertual Envirnment.
 
----
+
+```
 Confirm that Python3 is already installed by opening your Ubuntu terminal and entering: python3 --version. This should return your Python version number. If you need to update your version of Python, first update your Ubuntu version by entering: sudo apt update && sudo apt upgrade, then update Python using sudo apt upgrade python3.
 Install pip by entering: sudo apt install python3-pip. Pip allows you to install and manage additional packages that are not part of the Python standard library.
 Install venv by entering: sudo apt install python3-venv.
@@ -71,20 +72,22 @@ From within your project folkder, use the following command to create a virtual 
 To activate the virtual environment, enter: source .venv/bin/activate. If it worked, you should see (.venv) before the command prompt. 
 You now have a self-contained environment ready for writing code and installing packages. 
 When you're finished with your virtual environment, enter the following command to deactivate it: deactivate.
----
+```
+
 
 ### Installation
 
+```
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get upgrade python3
 
 As root user (or sudo su)
 
----
 git clone https://github.com/christyler80/Warberry3.git
 cd Warberry3
 .\warberry3_run.sh
----
+```
+
 
 #### To address the issue with ImportError: No module named dns follow these steps
 
