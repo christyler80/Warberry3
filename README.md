@@ -71,7 +71,7 @@ sudo apt install python3-pip
 sudo apt install python3-venv
 
 python3 -m venv .venv                     Creates a virtual environment named .venv.
-source .venv/bin/activate.                If it worked, you should see (.venv) before the command prompt. 
+source .venv/bin/activate                 If it worked, you should see (.venv) before the command prompt. 
 deactivate                                When you're finished with your virtual environment.
 ```
 
