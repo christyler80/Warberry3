@@ -82,9 +82,10 @@ deactivate                                When you're finished with your virtual
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get upgrade python3
 
+git clone https://github.com/christyler80/Warberry3.git
+
 As root user (or sudo su)
 
-git clone https://github.com/christyler80/Warberry3.git
 cd Warberry3
 .\warberry3_setup.sh
 ```
@@ -102,7 +103,7 @@ python setup.py install
 ### Run Warberry3 
 
 ```
-./warberry3_run.sh                        Depending on network size and complexity, this may take several hours to complete.
+./warberry3_scan.sh                        Depending on network size and complexity, this may take several hours to complete.
 ```
 
 
