@@ -83,11 +83,12 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get upgrade python3
 
 git clone https://github.com/christyler80/Warberry3.git
+chmod 755 *.sh
 
 As root user (or sudo su)
 
 cd Warberry3
-.\warberry3_setup.sh
+./warberry3_setup.sh
 ```
 
 
