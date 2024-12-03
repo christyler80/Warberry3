@@ -20,7 +20,9 @@ The scripts have been designed to avoid noise in the network that could lead to 
 
 Results are stored in a SQLite3 database and basic PHP reporting is included.
 
-This version of WarberryPi has been developed to run under Python 3 on Kali Linux. Other Debian based distros such as Ubuntu should work, but are likely to require manual installation of some components.
+This version of WarberryPi has been developed to run under Python 3 on Kali Linux. 
+
+Other Debian based distros such as Ubuntu should work, but are likely to require manual installation of some components.
 
 
 #### Disclaimer
