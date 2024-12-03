@@ -112,6 +112,8 @@ python setup.py install
 ### Run Warberry3 
 
 ```
+As root user (or sudo su)
+
 python3 -m venv .venv                     Creates a virtual environment named .venv.
 source .venv/bin/activate                 If it worked, you should see (.venv) before the command prompt. 
 
