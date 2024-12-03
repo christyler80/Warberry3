@@ -85,12 +85,18 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get upgrade python3
 
 git clone https://github.com/christyler80/Warberry3.git
+cd warberry3
 chmod 755 *.sh
 
 As root user (or sudo su)
 
+python3 -m venv .venv                     Creates a virtual environment named .venv.
+source .venv/bin/activate                 If it worked, you should see (.venv) before the command prompt. 
+
 cd Warberry3
 ./warberry3_setup.sh
+
+deactivate                                When you're finished with your virtual environment.
 ```
 
 
@@ -106,7 +112,12 @@ python setup.py install
 ### Run Warberry3 
 
 ```
-./warberry3_scan.sh                        Depending on network size and complexity, this may take several hours to complete.
+python3 -m venv .venv                     Creates a virtual environment named .venv.
+source .venv/bin/activate                 If it worked, you should see (.venv) before the command prompt. 
+
+./warberry3_scan.sh                       Depending on network size and complexity, this may take several hours to complete.
+
+deactivate                                When you're finished with your virtual environment.
 ```
 
 
